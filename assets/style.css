@@ -852,56 +852,75 @@ transform:translateY(0);
     overflow: hidden;
 }
 
-#menuToggle{
-
-display:none;
-
-background:none;
-
-font-size:25px;
-
-color:var(--text);
-
-}
-
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-
-header{
-
-padding:0 20px;
-
-}
-
-
-/* MOBILE MENU */
-
 .menuToggle{
 
 display:none;
-
 background:none;
-
-font-size:25px;
-
+font-size:28px;
 color:var(--text);
 
 }
 
 
-/* HP */
-
 @media(max-width:768px){
 
-nav#navMenu{
-display:none;
+
+.menuToggle{
+
+display:block;
+
 }
 
-nav#navMenu.show{
+
+#navMenu{
+
+position:absolute;
+
+top:70px;
+
+right:20px;
+
+width:200px;
+
+background:var(--white);
+
+border-radius:15px;
+
+padding:20px;
+
+box-shadow:var(--shadow);
+
+display:none;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+
+#navMenu a{
+
+padding:10px;
+
+border-radius:10px;
+
+}
+
+
+#navMenu a:hover{
+
+background:var(--primary);
+
+color:white;
+
+}
+
+
+#navMenu.show{
+
 display:flex;
+
 }
 
 }
