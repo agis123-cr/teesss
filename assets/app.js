@@ -30,12 +30,16 @@ async function loadUser(){
     }
 
 
-    document.getElementById("userName").innerHTML =
-    "Halo, " + data.nama + " 👋";
+   const userName = document.getElementById("userName");
+const pointUser = document.getElementById("pointUser");
 
+if(userName){
+    userName.innerHTML = "Halo, " + data.nama + " 👋";
+}
 
-    document.getElementById("pointUser").innerHTML =
-    data.poin;
+if(pointUser){
+    pointUser.innerHTML = data.poin || 0;
+}
 
 
 }
@@ -159,44 +163,6 @@ preview.innerHTML="";
 });
 
 }
-
-const map = L.map("reportMap").setView(
-    [-6.1701,106.6403],
-    15
-);
-
-
-L.tileLayer(
-    "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-        attribution:"© OpenStreetMap"
-    }
-).addTo(map);
-
-
-let marker;
-
-
-map.on("click",function(e){
-
-    if(marker){
-        map.removeLayer(marker);
-    }
-
-
-    marker = L.marker([
-        e.latlng.lat,
-        e.latlng.lng
-    ]).addTo(map);
-
-
-    document.getElementById("selectedLocation").innerHTML =
-    `
-    Latitude: ${e.latlng.lat}<br>
-    Longitude: ${e.latlng.lng}
-    `;
-
-});
 
 // ===========================
 // LEADERBOARD
