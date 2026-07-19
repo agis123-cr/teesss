@@ -30,14 +30,13 @@ const reportMap = L.map('reportMap').setView(
 13
 );
 
-
 L.tileLayer(
 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
 ).addTo(reportMap);
 
 
 
-let marker;
+let reportMarker;
 
 
 function setLocation(lat,lng){
@@ -46,15 +45,14 @@ function setLocation(lat,lng){
     longitude = lng;
 
 
-    if(marker){
+    if(reportMarker){
         reportMap.removeLayer(marker);
     }
 
-
-    marker = L.marker([
-        lat,
-        lng
-    ]).addTo(reportMap);
+reportMarker = L.marker([
+    lat,
+    lng
+]).addTo(reportMap);
 
 
 
