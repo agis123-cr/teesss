@@ -174,3 +174,52 @@ transform:translateY(-2px);
 opacity:.9;
 
 }
+
+.uploadPhoto{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    width:100%;
+
+    margin-top:20px;
+    padding:13px;
+
+    background:linear-gradient(
+        135deg,
+        #22c55e,
+        #43a047
+    );
+
+    color:white;
+
+    border-radius:15px;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 8px 18px rgba(67,160,71,.25);
+
+}
+
+
+.uploadPhoto i{
+
+    font-size:20px;
+
+}
+
+
+.uploadPhoto:hover{
+
+    transform:translateY(-3px);
+
+    background:#2e7d32;
+
+}
