@@ -25,7 +25,7 @@ let longitude = null;
 
 // MAP
 
-const map = L.map('reportMap').setView(
+const reportMap = L.map('reportMap').setView(
 [-6.2,106.8],
 13
 );
@@ -33,7 +33,7 @@ const map = L.map('reportMap').setView(
 
 L.tileLayer(
 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
-).addTo(map);
+).addTo(reportMap);
 
 
 
@@ -47,14 +47,14 @@ function setLocation(lat,lng){
 
 
     if(marker){
-        map.removeLayer(marker);
+        reportMap.removeLayer(marker);
     }
 
 
     marker = L.marker([
         lat,
         lng
-    ]).addTo(map);
+    ]).addTo(reportMap);
 
 
 
@@ -74,7 +74,7 @@ function setLocation(lat,lng){
 
 // klik manual di map
 
-map.on("click",function(e){
+reportMap.on("click",function(e){
 
     setLocation(
         e.latlng.lat,
@@ -125,7 +125,7 @@ locationBtn.addEventListener("click",()=>{
 
 
 
-        map.setView(
+        reportMap.setView(
             [lat,lng],
             17
         );
