@@ -926,3 +926,27 @@ font-size:32px;
     }
 
 }
+
+.submitReport{
+
+width:100%;
+padding:15px;
+
+background:#22c55e;
+color:white;
+
+border-radius:15px;
+
+font-size:16px;
+font-weight:600;
+
+margin-top:10px;
+
+}
+
+.submitReport:hover{
+
+background:#16a34a;
+transform:translateY(-2px);
+
+}
