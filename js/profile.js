@@ -117,12 +117,10 @@ session.user;
 
 
 const fileName =
-user.id + "_" + file.name;
+user.id + "_" + Date.now() + "_" + file.name;
 
 
-
-const {error:uploadError}=
-
+const {error:uploadError} =
 await supabaseClient
 .storage
 .from("avatars")
@@ -130,9 +128,17 @@ await supabaseClient
 fileName,
 file,
 {
-upsert:true
+    cacheControl:"3600",
+    upsert:true
 }
 );
+
+
+if(uploadError){
+    console.log(uploadError);
+    alert(uploadError.message);
+    return;
+}
 
 
 
@@ -146,13 +152,14 @@ return;
 
 
 
-const {data:urlData}=
-
+const urlData =
 supabaseClient
 .storage
 .from("avatars")
 .getPublicUrl(fileName);
 
+
+const avatarURL = urlData.data.publicUrl;
 
 
 
@@ -163,8 +170,7 @@ await supabaseClient
 .from("profiles")
 .update({
 
-avatar:urlData.publicUrl
-
+avatar:avatarURL
 })
 .eq(
 "id",
@@ -203,7 +209,26 @@ window.location.href="login.html";
 
 }
 
+document.getElementById("avatarInput")
+.addEventListener("change",function(){
 
+const file=this.files[0];
+
+if(file){
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+
+document.getElementById("profileImage").src=e.target.result;
+
+}
+
+reader.readAsDataURL(file);
+
+}
+
+});
 
 
 loadProfile();
