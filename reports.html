@@ -77,8 +77,15 @@ required>
 
 <label>Lokasi Sampah</label>
 
+<button type="button" id="getLocation">
+📍 Gunakan Lokasi Saya
+</button>
+
 <div id="reportMap"></div>
-<p id="selectedLocation">Belum memilih lokasi</p>
+
+<p id="selectedLocation">
+Belum memilih lokasi
+</p>
 <label>Deskripsi</label>
 
 <textarea
@@ -86,7 +93,10 @@ id="description"
 placeholder="Contoh: Sampah plastik menumpuk di sungai">
 </textarea>
 
-<button type="submit">Kirim Laporan</button>
+<button class="submitReport" type="submit">
+<i class="fa-solid fa-paper-plane"></i>
+Kirim Laporan
+</button>
 </form>
 
 </section>
