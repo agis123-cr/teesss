@@ -22,7 +22,10 @@ if (form) {
 
         const {data,error} =
         await supabaseClient.auth.signInWithPassword({
-
+ showMessage(
+"Sedang masuk...",
+"loading"
+);
             email: email,
 
             password: password
@@ -33,8 +36,8 @@ if (form) {
 
         if(error){
 
-            alert(error.message);
-
+            showMessage(error.message,"error");
+            
             return;
 
         }
@@ -44,10 +47,13 @@ if (form) {
         console.log("LOGIN:", data);
 
 
-        alert("Login berhasil");
+        showMessage("Login berhasil! Mengalihkan...", "success");
 
+setTimeout(()=>{
 
-        window.location.href="index.html";
+window.location.href="index.html";
+
+},1500);
 
 
     });
@@ -76,8 +82,8 @@ if (registerForm) {
 
 
         if (password !== confirm) {
-            alert("Password tidak sama!");
-            return;
+           showMessage("Password tidak sama!", "error");
+return;
         }
 
 
@@ -96,8 +102,8 @@ console.log("SIGNUP DATA:", data);
 console.log("SIGNUP ERROR:", error);
 
 if (error) {
-    alert(error.message);
-    return;
+    showMessage(error.message,"error");
+return;
 }
 
 
@@ -115,15 +121,35 @@ if (error) {
 console.log("PROFILE ERROR:", profileError);
 
 if (profileError) {
-    alert(profileError.message);
-    return;
+showMessage(profileError.message,"error");
+return;
 }
 
 
-        alert("Pendaftaran berhasil!");
+       showMessage("Pendaftaran berhasil! Silakan login.", "success");
 
-        window.location.href = "login.html";
+setTimeout(()=>{
+
+window.location.href="login.html";
+
+},1500);
 
     });
+
+}
+
+function showMessage(text,type){
+
+const msg=document.getElementById("message");
+
+if(!msg) return;
+
+
+msg.innerHTML=text;
+
+msg.className=type;
+
+msg.style.display="block";
+
 
 }
