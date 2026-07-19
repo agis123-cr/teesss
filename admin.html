@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack Admin</title>
+    <link rel="stylesheet" href="assets/admin/style.css">
+    <link rel="stylesheet" href="assets/admin/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="loader">
+    <div class="spinner"></div>
+</div>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        <i class="fa-solid fa-recycle"></i>
+        <span>EcoTrack Admin</span>
+    </div>
+
+    <nav>
+        <button id="darkMode">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+         <button class="backButton" onclick="history.back()">
+    <i class="fa-solid fa-arrow-left"></i>
+    Kembali
+</button>
+    </nav>
+</header>
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="profile">
+        <img src="assets/img/avatar.png">
+        <h3>Administrator</h3>
+        <p>EcoTrack System</p>
+    </div>
+
+    <ul>
+
+        <li>
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+        </li>
+
+        <li>
+            <i class="fa-solid fa-file-circle-check"></i>
+            Laporan
+        </li>
+
+        <li>
+            <i class="fa-solid fa-users"></i>
+            Pengguna
+        </li>
+
+        <li>
+            <i class="fa-solid fa-location-dot"></i>
+            Lokasi
+        </li>
+
+        <li>
+            <i class="fa-solid fa-robot"></i>
+            AI Detection
+        </li>
+
+        <li>
+            <i class="fa-solid fa-gear"></i>
+            Pengaturan
+        </li>
+
+    </ul>
+
+</aside>
+
+<!-- CONTENT -->
+
+<main>
+
+<section class="hero">
+<div>
+<h1>Dashboard Administrator</h1>
+<p>Pantau seluruh laporan sampah yang dikirim pengguna.</p>
+</div>
+</section>
+
+<!-- STATISTIK -->
+
+<!-- STATISTIK -->
+
+<section class="dashboard">
+
+<div class="card">
+<h2>Total Laporan</h2>
+<h1 id="adminTotal">0</h1>
+</div>
+
+
+<div class="card">
+<h2>Sudah Dibersihkan</h2>
+<h1 id="adminDone">0</h1>
+</div>
+
+
+<div class="card">
+<h2>Diproses</h2>
+<h1 id="adminProcess">0</h1>
+</div>
+
+
+<div class="card">
+<h2>Ditolak AI</h2>
+<h1 id="adminReject">0</h1>
+</div>
+
+</section>
+
+<!-- SEARCH -->
+
+<section class="reportCard">
+<h2><i class="fa-solid fa-magnifying-glass"></i>Cari Laporan</h2>
+
+<input type="text"
+placeholder="Cari nama, lokasi atau deskripsi..."
+id="searchReport">
+
+</section>
+
+<!-- FILTER -->
+
+<section class="dashboard">
+<button class="primary">Semua</button>
+<button class="primary">Diproses</button>
+<button class="primary">Selesai</button>
+<button class="primary">Ditolak</button>
+</section>
+
+
+
+<!-- TABLE -->
+
+<section class="reportCard">
+<h2>Daftar Laporan</h2>
+<table class="adminTable">
+<thead>
+<tr>
+<th>Foto</th>
+<th>Pelapor</th>
+<th>Lokasi</th>
+<th>Status</th>
+<th>AI</th>
+<th>Aksi</th>
+</tr>
+</thead>
+
+<tbody id="adminBody">
+<tr>
+<td colspan="6">
+Memuat laporan...
+</td>
+</tr>
+
+</tbody>
+</table>
+</section>
+
+<!-- MODAL -->
+
+<div class="modal" id="detailModal">
+<div class="modalContent">
+<span class="closeModal">&times;</span>
+
+<h2>Detail Laporan</h2>
+
+<img id="detailImage"src=""width="300">
+
+<h3 id="detailName">Nama User</h3>
+
+
+<p>📍 <span id="detailLocation">Lokasi</span></p>
+<p>📝 <span id="detailDescription">Deskripsi</span></p>
+<p>📅 <span id="detailDate">-</span></p>
+<p>Status:<span id="detailStatus">-</span></p>
+<p>AI Score:<span id="detailAI">0%</span></p>
+<button class="primary" id="confirmAI">Konfirmasi AI</button>
+
+</div>
+</div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="assets/admin/app.js"></script>
+</body>
+
+</html>

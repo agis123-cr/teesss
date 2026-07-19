@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EcoTrack | Smart Waste Report</title>
+
+<link rel="stylesheet" href="assets/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<i class="fa-solid fa-recycle"></i>
+<span>EcoTrack</span>
+</div>
+
+
+<nav id="navMenu">
+
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="reports.html">Lapor</a>
+<a href="history.html">Riwayat</a>
+<a href="profile.html">Profil</a>
+
+<button id="darkMode">
+<i class="fa-solid fa-moon"></i>
+</button>
+
+</nav>
+
+
+<button class="menuToggle" id="menuToggle">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+
+
+<main>
+<section class="hero">
+<div>
+<h1>Laporkan Sampah Lebih Cepat</h1>
+<p>Bantu menjaga lingkungan sekolah dengan melaporkan sampah menggunakan foto dan lokasi.</p>
+
+<button class="primary"
+onclick="location.href='reports.html'">Mulai Melapor</button>
+
+</div>
+
+<div>
+<img src="assets/hero.png">
+</div>
+
+</section>
+
+<section class="dashboard">
+<div class="card">
+<h2>Total Laporan</h2>
+<h1>0</h1>
+</div>
+
+<div class="card">
+<h2>Sampah Selesai</h2>
+<h1>0</h1>
+</div>
+
+<div class="card"><h2>Pengguna Aktif</h2>
+<h1>0</h1>
+</div>
+
+</section>
+
+<section class="feature">
+<h2>Fitur EcoTrack</h2>
+
+<div class="featureGrid">
+<div class="card">
+<i class="fa-solid fa-camera"></i>
+<h3>Lapor Sampah</h3>
+<p>Upload foto dan lokasi sampah.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-location-dot"></i>
+<h3>Smart Location</h3>
+<p>Menentukan lokasi sampah secara cepat dan akurat.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-robot"></i>
+<h3>AI Validator</h3>
+<p>Mengecek laporan asli atau iseng.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="leaderboard">
+
+<h2>🏆 Leaderboard</h2>
+
+<div id="leaderboardList">
+
+<p>Memuat leaderboard...</p>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+<div>
+<i class="fa-solid fa-recycle"></i>
+EcoTrack
+</div>
+
+<p>© 2026 EcoTrack Agits</p>
+</footer>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="assets/app.js"></script>
+</body>
+
+</html>

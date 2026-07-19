@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EcoTrack | Dashboard</title>
+
+<link rel="stylesheet" href="assets/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+<header>
+<div class="logo">
+<i class="fa-solid fa-recycle"></i>
+<span>EcoTrack</span>
+</div>
+
+
+<nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="reports.html">Lapor</a>
+<a href="history.html">Riwayat</a>
+<a href="profile.html">Profil</a>
+</nav>
+
+</header>
+
+<main>
+
+<section class="dashboardHero">
+<h1>Halo, <span id="userName">User</span> 👋</h1>
+<p>Selamat datang kembali di EcoTrack</p>
+</section>
+
+<section class="dashboard">
+<div class="card">
+<i class="fa-solid fa-file-lines"></i>
+<h3>Total Laporan</h3>
+<h1 id="totalReport">0</h1>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-clock"></i>
+<h3>Diproses</h3>
+<h1 id="processReport">0</h1>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-circle-check"></i>
+<h3>Selesai</h3>
+<h1 id="doneReport">0</h1>
+</div>
+
+
+<div class="card">
+<i class="fa-solid fa-star"></i>
+<h3>Poin Saya</h3>
+<h1 id="userPoint">0</h1>
+</div>
+
+</section>
+
+
+<section class="quickMenu">
+
+<h2>Menu Cepat</h2>
+
+<div class="featureGrid">
+<div class="card menuCard"
+onclick="location.href='reports.html'">
+<i class="fa-solid fa-camera"></i>
+<h3>Buat Laporan</h3>
+<p>Laporkan sampah baru</p>
+</div>
+
+
+
+
+<div class="card menuCard"onclick="location.href='history.html'">
+<i class="fa-solid fa-clock-rotate-left"></i>
+<h3>Riwayat</h3>
+<p>Lihat laporan sebelumnya</p>
+</div>
+
+
+
+<div class="card menuCard"
+onclick="location.href='profile.html'">
+<i class="fa-solid fa-user"></i>
+<h3>Profil</h3>
+<p>Kelola akun</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="recent">
+<h2>Laporan Terbaru</h2>
+<div id="recentReports">
+<div class="card">
+<p>Belum ada laporan</p>
+</div>
+
+</div>
+</section>
+
+
+</main>
+
+<footer>
+<i class="fa-solid fa-recycle"></i>
+EcoTrack
+<p>© 2026 EcoTrack Indonesia</p>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

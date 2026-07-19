@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - EcoTrack</title>
+<link rel="stylesheet" href="assets/css/auth.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+<div class="loginContainer">
+<div class="loginBox">
+<div class="logo">
+<i class="fa-solid fa-recycle"></i>
+<h1>EcoTrack</h1>
+</div>
+
+<h2>Selamat Datang 👋</h2>
+<p>Masuk untuk melanjutkan.</p>
+<form id="loginForm">
+
+<input
+type="email"
+id="email"
+placeholder="Email"
+required>
+
+<input
+type="password"
+id="password"
+placeholder="Password"
+required>
+
+<button>Masuk</button>
+</form>
+
+<p>Belum punya akun?
+<a href="register.html">Daftar</a>
+</p>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="assets/css/auth.js"></script>
+
+</body>
+
+</html>

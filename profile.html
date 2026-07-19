@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profile - EcoTrack</title>
+
+<link rel="stylesheet" href="assets/css/profile.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    
+    <div class="profile-card">
+
+        <div class="avatar">
+
+<img 
+id="profileImage"
+src="assets/avatar.png"
+>
+
+</div>
+
+
+<input 
+type="file"
+id="avatarInput"
+accept="image/*"
+>
+
+
+<button id="uploadAvatar">
+Upload Foto Profil
+</button>
+
+        <h2 id="nama">
+            Memuat...
+        </h2>
+
+        <p id="email">
+            email
+        </p>
+
+
+        <div class="stats">
+
+            <div class="box">
+                <h3 id="poin">0</h3>
+                <p>Poin</p>
+            </div>
+
+            <div class="box">
+                <h3 id="laporan">0</h3>
+                <p>Laporan</p>
+            </div>
+
+        </div>
+
+
+        <div class="info">
+
+            <p>
+                📱 <span id="phone">-</span>
+            </p>
+
+            <p>
+                🏷️ <span id="role">User</span>
+            </p>
+
+        </div>
+
+        <button class="backButton" onclick="history.back()">
+    <i class="fa-solid fa-arrow-left"></i>
+    Kembali
+</button>
+
+<button
+id="adminBtn"
+style="display:none;"
+onclick="location.href='admin.html'">
+
+🛠 Admin Panel
+
+</button>
+
+<button onclick="logout()">
+Logout
+</button>
+
+      
+
+
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/profile.js"></script>
+
+
+</body>
+</html>

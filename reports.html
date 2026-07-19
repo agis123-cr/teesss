@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EcoTrack | Lapor Sampah</title>
+
+<link rel="stylesheet" href="assets/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+<i class="fa-solid fa-recycle"></i>
+<span>EcoTrack</span>
+</div>
+
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="reports.html">Lapor</a>
+<a href="history.html">Riwayat</a>
+<a href="profile.html">Profil</a>
+
+</nav>
+
+</header>
+
+
+
+
+<main>
+
+
+<section class="reportCard">
+
+
+<h1>
+<i class="fa-solid fa-camera"></i>
+Laporkan Sampah
+</h1>
+
+<form id="reportForm">
+<label>Foto Sampah</label>
+
+<input 
+type="file"
+id="photo"
+accept="image/*"
+required>
+
+
+
+<div id="preview"></div>
+
+<label>Lokasi Sampah</label>
+
+<div id="reportMap"></div>
+<p id="selectedLocation">Belum memilih lokasi</p>
+<label>Deskripsi</label>
+
+<textarea
+id="description"
+placeholder="Contoh: Sampah plastik menumpuk di sungai">
+</textarea>
+
+<button type="submit">Kirim Laporan</button>
+</form>
+
+</section>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/reports.js"></script>
+
+
+</body>
+
+</html>
