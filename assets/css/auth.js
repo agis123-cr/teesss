@@ -1,3 +1,4 @@
+
 // ===========================
 // LOGIN
 // ===========================
@@ -6,56 +7,35 @@ const form = document.getElementById("loginForm");
 
 if (form) {
 
-   form.addEventListener("submit", async (e) => {
+    form.addEventListener("submit", async (e) => {
 
-    e.preventDefault();
+        e.preventDefault();
 
-    const email =
-    document.getElementById("email").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
 
-    const password =
-    document.getElementById("password").value;
+        showMessage("Sedang masuk...", "loading");
 
-    showMessage(
-        "Sedang masuk...",
-        "loading"
-    );
+        const { data, error } =
+        await supabaseClient.auth.signInWithPassword({
+            email: email,
+            password: password
+        });
 
-    const { data, error } =
-    await supabaseClient.auth.signInWithPassword({
+        if (error) {
+            showMessage(error.message, "error");
+            return;
+        }
 
-        email: email,
-        password: password
+        showMessage("Login berhasil ✅", "success");
+
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 1000);
 
     });
 
-    if(error){
-
-        showMessage(
-            error.message,
-            "error"
-        );
-
-        return;
-    }
-
-    showMessage(
-        "Login berhasil ✅",
-        "success"
-    );
-
-    setTimeout(()=>{
-
-        window.location.href = "index.html";
-
-    },1000);
-
-});
-
-
-
 }
-
 // ===========================
 // REGISTER
 // ===========================
