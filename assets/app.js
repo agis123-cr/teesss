@@ -255,6 +255,10 @@ loadLeaderboard();
 // MOBILE MENU
 // ===========================
 
+// ===========================
+// MOBILE MENU
+// ===========================
+
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
 
