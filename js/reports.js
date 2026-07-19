@@ -40,36 +40,130 @@ L.tileLayer(
 let marker;
 
 
-map.on("click",function(e){
+function setLocation(lat,lng){
 
-latitude = e.latlng.lat;
-longitude = e.latlng.lng;
+    latitude = lat;
+    longitude = lng;
 
 
-if(marker){
-map.removeLayer(marker);
+    if(marker){
+        map.removeLayer(marker);
+    }
+
+
+    marker = L.marker([
+        lat,
+        lng
+    ]).addTo(map);
+
+
+
+    document.getElementById(
+    "selectedLocation"
+    ).innerHTML =
+    `
+    Lokasi dipilih:
+    <br>
+    ${lat},
+    ${lng}
+    `;
+
 }
 
 
-marker = L.marker([
-latitude,
-longitude
-]).addTo(map);
 
+// klik manual di map
 
+map.on("click",function(e){
 
-document.getElementById(
-"selectedLocation"
-).innerHTML =
-`
-Lokasi dipilih:
-<br>
-${latitude},
-${longitude}
-`;
+    setLocation(
+        e.latlng.lat,
+        e.latlng.lng
+    );
 
 });
 
+
+
+
+// tombol Gunakan Lokasi Saya
+
+const locationBtn =
+document.getElementById("getLocation");
+
+
+if(locationBtn){
+
+
+locationBtn.addEventListener("click",()=>{
+
+
+    if(!navigator.geolocation){
+
+        alert("GPS tidak tersedia");
+        return;
+
+    }
+
+
+    locationBtn.innerHTML =
+    "⏳ Mengambil lokasi...";
+
+
+
+    navigator.geolocation.getCurrentPosition(
+
+    function(position){
+
+
+        const lat =
+        position.coords.latitude;
+
+
+        const lng =
+        position.coords.longitude;
+
+
+
+        map.setView(
+            [lat,lng],
+            17
+        );
+
+
+        setLocation(
+            lat,
+            lng
+        );
+
+
+        locationBtn.innerHTML =
+        "📍 Lokasi Berhasil";
+
+
+    },
+
+
+    function(){
+
+        alert(
+        "Gagal mengambil lokasi. Izinkan akses GPS."
+        );
+
+
+        locationBtn.innerHTML =
+        "📍 Gunakan Lokasi Saya";
+
+    }
+
+
+    );
+
+
+});
+
+
+}
 
 
 
