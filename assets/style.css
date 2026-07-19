@@ -877,9 +877,34 @@ padding:0 20px;
 }
 
 
-#menuToggle{
+/* MOBILE MENU */
+
+.menuToggle{
+
+display:none;
+
+background:none;
+
+font-size:25px;
+
+color:var(--text);
+
+}
+
+
+/* HP */
+
+@media(max-width:768px){
+
+.menuToggle{
 
 display:block;
+
+position:absolute;
+
+right:20px;
+
+top:20px;
 
 }
 
@@ -888,7 +913,7 @@ display:block;
 
 position:absolute;
 
-top:75px;
+top:70px;
 
 right:20px;
 
@@ -914,6 +939,5 @@ gap:15px;
 display:flex;
 
 }
-
 
 }
