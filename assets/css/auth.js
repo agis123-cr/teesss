@@ -6,55 +6,51 @@ const form = document.getElementById("loginForm");
 
 if (form) {
 
-    form.addEventListener("submit", async (e) => {
+   form.addEventListener("submit", async (e) => {
 
-        e.preventDefault();
+    e.preventDefault();
 
+    const email =
+    document.getElementById("email").value;
 
-        const email =
-        document.getElementById("email").value;
+    const password =
+    document.getElementById("password").value;
 
+    showMessage(
+        "Sedang masuk...",
+        "loading"
+    );
 
-        const password =
-        document.getElementById("password").value;
+    const { data, error } =
+    await supabaseClient.auth.signInWithPassword({
 
+        email: email,
+        password: password
 
+    });
 
-        const {data,error} =
-        await supabaseClient.auth.signInWithPassword({
- showMessage(
-"Sedang masuk...",
-"loading"
-);
-            email: email,
+    if(error){
 
-            password: password
+        showMessage(
+            error.message,
+            "error"
+        );
 
-        });
+        return;
+    }
 
+    showMessage(
+        "Login berhasil ✅",
+        "success"
+    );
 
+    setTimeout(()=>{
 
-        if(error){
+        window.location.href = "index.html";
 
-            showMessage(error.message,"error");
-            
-            return;
+    },1000);
 
-        }
-
-
-
-        console.log("LOGIN:", data);
-
-
-        showMessage("Login berhasil! Mengalihkan...", "success");
-
-setTimeout(()=>{
-
-window.location.href="index.html";
-
-},1500);
-
+});
 
     });
 
