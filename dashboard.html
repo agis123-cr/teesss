@@ -21,22 +21,28 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <body>
 
 <header>
+
 <div class="logo">
 <i class="fa-solid fa-recycle"></i>
 <span>EcoTrack</span>
 </div>
 
 
-<nav>
-<a href="index.html">Home</a>
-<a href="dashboard.html">Dashboard</a>
-<a href="reports.html">Lapor</a>
-<a href="history.html">Riwayat</a>
-<a href="profile.html">Profil</a>
+<nav class="desktopNav">
+
+<a href="index.html">🏠 Home</a>
+<a href="dashboard.html">📊 Dashboard</a>
+<a href="reports.html">📝 Lapor</a>
+<a href="history.html">📋 Riwayat</a>
+<a href="profile.html">👤 Profil</a>
+
+<button id="darkMode">
+<i class="fa-solid fa-moon"></i>
+</button>
+
 </nav>
 
 </header>
-
 <main>
 
 <section class="dashboardHero">
@@ -126,10 +132,43 @@ EcoTrack
 <p>© 2026 EcoTrack Indonesia</p>
 </footer>
 
+  <nav class="bottomNav">
+
+<a href="index.html">
+<i class="fa-solid fa-house"></i>
+<span>Home</span>
+</a>
+
+
+<a href="dashboard.html">
+<i class="fa-solid fa-chart-line"></i>
+<span>Dashboard</span>
+</a>
+
+
+<a href="reports.html">
+<i class="fa-solid fa-pen"></i>
+<span>Lapor</span>
+</a>
+
+
+<a href="history.html">
+<i class="fa-solid fa-clock"></i>
+<span>Riwayat</span>
+</a>
+
+
+<a href="profile.html">
+<i class="fa-solid fa-user"></i>
+<span>Profil</span>
+</a>
+
+</nav>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase.js"></script>
-<script src="js/dashboard.js"></script>
+<script src="assets/app.js"></script>
+  <script src="js/dashboard.js"></script>
 
 </body>
 
