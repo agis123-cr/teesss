@@ -896,48 +896,12 @@ color:var(--text);
 
 @media(max-width:768px){
 
-.menuToggle{
-
-display:block;
-
-position:absolute;
-
-right:20px;
-
-top:20px;
-
-}
-
-
-#navMenu{
-
-position:absolute;
-
-top:70px;
-
-right:20px;
-
-background:var(--white);
-
-padding:20px;
-
-border-radius:15px;
-
-box-shadow:var(--shadow);
-
+nav#navMenu{
 display:none;
-
-flex-direction:column;
-
-gap:15px;
-
 }
 
-
-#navMenu.show{
-
+nav#navMenu.show{
 display:flex;
-
 }
 
 }
