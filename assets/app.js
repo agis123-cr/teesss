@@ -265,10 +265,10 @@ const navMenu = document.getElementById("navMenu");
 
 if(menuToggle && navMenu){
 
-    menuToggle.addEventListener("click",()=>{
+    menuToggle.onclick = ()=>{
 
         navMenu.classList.toggle("show");
 
-    });
+    };
 
 }
