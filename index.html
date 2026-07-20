@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoTrack | Welcoming</title>
+  <title>EcoTrack | Smart Waste Report</title>
 
-  <!-- Google Fonts & Font Awesome (Sesuai Projek Kamu) -->
+  <!-- Google Fonts & Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
@@ -18,7 +18,7 @@
     }
 
     body {
-      background: #22c55e;
+      background: #15803d; /* Hijau pekat */
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -26,25 +26,20 @@
       overflow: hidden;
     }
 
-    /* Fullscreen Splash Screen Container */
+    /* Container Presisi Tengah */
     .splash-container {
-      position: fixed;
-      inset: 0;
-      background: #15803d; /* Hijau Emerald Pekat */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       color: white;
-      z-index: 9999;
       padding: 20px;
-      transition: opacity 0.8s ease, visibility 0.8s ease;
     }
 
     .splash-logo {
       font-size: 64px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       animation: pulse 1.8s infinite ease-in-out;
     }
 
@@ -57,41 +52,38 @@
     .splash-subtitle {
       font-size: 14px;
       opacity: 0.85;
-      margin-top: 5px;
+      margin-top: 4px;
     }
 
-    /* Indikator Loading Presisi Tengah */
+    /* Spinner Loading */
     .loader {
       margin-top: 35px;
-      width: 38px;
-      height: 38px;
-      border: 4px solid rgba(255, 255, 255, 0.25);
+      width: 36px;
+      height: 36px;
+      border: 3.5px solid rgba(255, 255, 255, 0.25);
       border-radius: 50%;
       border-top-color: #ffffff;
       animation: spin 0.9s linear infinite;
     }
 
-    /* Animasi Keyframes */
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
 
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+      50% { transform: scale(1.08); }
     }
 
-    /* Responsif untuk Smartphone */
     @media (max-width: 480px) {
       .splash-logo { font-size: 52px; }
       .splash-title { font-size: 26px; }
-      .splash-subtitle { font-size: 12px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="splash-container" id="splash">
+  <div class="splash-container">
     <div class="splash-logo">
       <i class="fa-solid fa-recycle"></i>
     </div>
@@ -100,28 +92,34 @@
     <div class="loader"></div>
   </div>
 
+  <!-- CDN Supabase & JS Kamu -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase.js"></script>
+
   <script>
-    // Cek status sesi login & alihkan otomatis setelah 2.5 detik
-    window.addEventListener('DOMContentLoaded', async () => {
-      setTimeout(async () => {
-        // Jika kamu menggunakan Supabase Auth di file js/supabase.js
-        if (typeof supabase !== 'undefined') {
-          const { data: { session } } = await supabase.auth.getSession();
-          
-          if (session) {
-            // Jika pengguna sudah login -> langsung ke Dashboard
-            window.location.href = 'dashboard.html';
-          } else {
-            // Jika belum login -> arahkan ke halaman Login
-            window.location.href = 'login.html';
+    // Fungsi untuk Eksekusi Pindah Halaman
+    async function checkAndRedirect() {
+      try {
+        // Cek apakah variabel supabase ada dari file js/supabase.js
+        if (typeof supabase !== 'undefined' && supabase.auth) {
+          const { data } = await supabase.auth.getSession();
+          if (data && data.session) {
+            // Jika user terdeteksi sudah login -> Pindah ke Dashboard
+            window.location.replace('dashboard.html');
+            return;
           }
-        } else {
-          // Fallback jika Supabase belum siap -> arahkan ke Login
-          window.location.href = 'login.html';
         }
-      }, 2500); // Durasi tampil 2.5 detik
+      } catch (err) {
+        console.error("Supabase Error / Offline:", err);
+      }
+
+      // Jika belum login / terjadi error -> Pindah ke Login
+      window.location.replace('login.html');
+    }
+
+    // Jalankan timer 2.5 detik saat halaman dimuat
+    window.addEventListener('load', () => {
+      setTimeout(checkAndRedirect, 2500);
     });
   </script>
 </body>
